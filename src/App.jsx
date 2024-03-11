@@ -1,3 +1,5 @@
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -12,20 +14,23 @@ import Login from "./pages/Login";
 
 function App() {
   return (
-    <Routes>
-      <Route element={<PrivateLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/categories" element={<CategoryList />} />
-        <Route path="/posts" element={<PostList />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/setting" element={<Setting />} />
-      </Route>
+    <>
+      <Routes>
+        <Route element={<PrivateLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/categories" element={<CategoryList />} />
+          <Route path="/posts" element={<PostList />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/setting" element={<Setting />} />
+        </Route>
 
-      <Route element={<PublicLayout />}>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-      </Route>
-    </Routes>
+        <Route element={<PublicLayout />}>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+      </Routes>
+      <ToastContainer />
+    </>
   );
 }
 
